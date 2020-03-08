@@ -56,7 +56,7 @@ namespace WebAPI
 
             app.UseRouting();
 
-            app.UseAuthentication(); // add the authenticaion middleware to the pipeline
+            app.UseAuthentication(); // add the authentication middleware to the pipeline
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

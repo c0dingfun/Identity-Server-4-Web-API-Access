@@ -16,18 +16,15 @@ using (var context = new ProductContext(options))
     // add service here
 }
 
-## [Use EF InMemory DB Example](https://exceptionnotfound.net/ef-core-inmemory-asp-net-core-store-database
-/)
-
-
+## [Use EF InMemory DB Example](https://exceptionnotfound.net/ef-core-inmemory-asp-net-core-store-database/)
 
 ## Test using Postman 
 
 Before putting [Authorize] attribute on our CustomerController, we can do CRUS by using:
 
-GET http://localhost:57602/api/Customers - get all customers
-GET http://localhost:57602/api/Customers/3 - get a specific customers
-POST http://localhost:57602/api/Customers - Create a customers
+GET http://localhost:5001/api/Customers - get all customers
+GET http://localhost:5001/api/Customers/3 - get a specific customers
+POST http://localhost:5001/api/Customers - Create a customers
 Body, raw with JSON (application/json):
 {
     "Id": 1,
@@ -119,6 +116,7 @@ Authorization:
 Body: 
 
     x-www-form-urlencoded
+
     |key|value|
     |--| --|
     |grant_type|client_credentials|
@@ -168,3 +166,5 @@ Response:
         }
     }
 ``` 
+
+- [For Complete Solution](https://github.com/c0dingfun/Note-Collection/blob/master/Identity%20Server4.md)

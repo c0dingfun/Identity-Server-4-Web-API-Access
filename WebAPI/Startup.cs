@@ -26,11 +26,23 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(defaultScheme:"Bearer")  // return AuthenticationBuilder
+                    .AddIdentityServerAuthentication(options =>
+                    {
+                        options.Authority = "http://localhost:5000";    // specify Identity Server address
+                        options.RequireHttpsMetadata = false;
+                        options.ApiName = "WebAPI";     // The resource name
+
+                    });
+
+
+            // use EF's InMemoryDB
             services.AddDbContext<CustomerContext>(opts =>
             {
                 opts.UseInMemoryDatabase(databaseName: "CustomerDB");
 
             }); 
+
             services.AddControllers();
         }
 
@@ -44,6 +56,7 @@ namespace WebAPI
 
             app.UseRouting();
 
+            app.UseAuthentication(); // add the authenticaion middleware to the pipeline
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
